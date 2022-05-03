@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Date;
 
 public class Persona {
     private String identificador;
@@ -9,6 +10,7 @@ public class Persona {
     private float altura;
     private String aficiones;//crear array
 
+    /***********************CONSTRUCTORES**********************/
     Persona() {
     }
 
@@ -26,6 +28,7 @@ public class Persona {
         this.altura=altura;
     }
 
+    /***********************MÉTODOS*******************/
     public static float calcularIMC (float peso, float altura){
         final float debajo =-1, ideal=0, sobrepeso=1;
         float imc=peso/(altura*altura);
@@ -35,6 +38,11 @@ public class Persona {
                 return ideal;
                 else
                     return sobrepeso;
+    }
+
+    public static int calcularEdad (Date fechaNac) {
+        Date fechaUs =new Date (0,0,0);
+
     }
 
 //    public static boolean mayorEdad (){}//calcular fechas
