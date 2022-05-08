@@ -28,6 +28,47 @@ public class Persona {
         this.altura=altura;
     }
 
+
+    /*********************************SETTER***********************/
+    public void setNombre (String nombre) {
+        this.nombre=nombre;
+    }
+    public void setFechaNacimiento (String fechaNacimiento) {
+        this.fechaNacimiento=fechaNacimiento;
+    }
+    public void setSexo (char sexo) {
+        this.sexo=sexo;
+    }
+    public void setPeso (float peso) {
+        this.peso=peso;
+    }
+    public void setAltura (float altura) {
+        this.altura=altura;
+    }
+    public void setAficiones (String aficiones) {
+        this.aficiones=aficiones;
+    }
+
+    /**********************GETTER***********************/
+    public String getNombre() {
+        return nombre;
+    }
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+    public char getSexo() {
+        return sexo;
+    }
+    public float getPeso() {
+        return peso;
+    }
+    public float getAltura() {
+        return altura;
+    }
+    public String aficiones() {
+        return aficiones;
+    }
+
     /***********************MÉTODOS*******************/
     public static float calcularIMC (float peso, float altura){
         final float debajo =-1, ideal=0, sobrepeso=1;
@@ -42,7 +83,13 @@ public class Persona {
 
     public static int calcularEdad (Date fechaNac) {
         Date fechaUs =new Date (0,0,0);
+        return 1;
+    }
 
+    public static void controlSexo (char sexo) {
+        while (sexo != 'h' || sexo != 'm') {
+            System.out.println("Error, debes introducir 'h' (hombre) o 'm' (mujer)");
+        }
     }
 
 //    public static boolean mayorEdad (){}//calcular fechas
