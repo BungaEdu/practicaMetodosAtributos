@@ -1,3 +1,5 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Random;
 import java.util.Date;
 
@@ -9,6 +11,17 @@ public class Persona {
     private float peso;
     private float altura;
     private String aficiones;//crear array
+
+
+
+
+
+
+
+
+
+
+
 
     /***********************CONSTRUCTORES**********************/
     Persona() {
@@ -101,5 +114,3 @@ public class Persona {
         return newIdent;
     }
 }
-
-

@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class GestionaPersona {
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class GestionaPersona {
         pers3.setSexo(sexo);
 
         System.out.println("Dime peso: ");
-        char sexo = parseInt.nextLine(); //Verificar el parseint
+        char sexo = Integer.parseInt(sc.nextLine()); //parseo/envolvente/parsear
 
 
         System.out.println("Dime altura: ");
@@ -36,3 +36,4 @@ public class GestionaPersona {
 
     }
 }
+*/
