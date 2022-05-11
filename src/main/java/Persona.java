@@ -1,116 +1,172 @@
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Random;
-import java.util.Date;
+import java.util.*;
 
 public class Persona {
-    private String identificador;
-    private String nombre;
-    private String fechaNacimiento; //controlar formato fechas;
-    private Character sexo;
-    private float peso;
-    private float altura;
-    private String aficiones;//crear array
-
-
-
-
-
-
-
-
-
-
-
+    final char constSexMujer = 'M';
+    private String identificador = " ";
+    private String nombre = " ";
+    private String fechaNac = " "; //controlar formato fechas;
+    private Character sexo = constSexMujer;
+    private float peso = 0;
+    private float altura = 0;
+    private String aficiones = " ";//crear array
 
     /***********************CONSTRUCTORES**********************/
     Persona() {
     }
 
-    Persona (String nombre, String fechaNacimiento, char sexo) {
-        this.nombre=nombre;
-        this.fechaNacimiento=fechaNacimiento;
-        this.sexo=sexo;
+    Persona(String nombre, String fechaNac, char sexo) {
+        this.nombre = nombre;
+        this.fechaNac = fechaNac;
+        this.sexo = sexo;
     }
 
-    Persona (String nombre, String fechaNacimiento, char sexo, float peso, float altura, String aficiones) {
-        this.nombre=nombre;
-        this.fechaNacimiento=fechaNacimiento;
-        this.sexo=sexo;
-        this.peso=peso;
-        this.altura=altura;
+    Persona(String nombre, String fechaNac, char sexo, float peso, float altura, String aficiones) {
+        this.nombre = nombre;
+        this.fechaNac = fechaNac;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.altura = altura;
     }
 
 
     /*********************************SETTER***********************/
-    public void setNombre (String nombre) {
-        this.nombre=nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    public void setFechaNacimiento (String fechaNacimiento) {
-        this.fechaNacimiento=fechaNacimiento;
+
+    public void setfechaNac(String fechaNac) {
+        this.fechaNac = fechaNac;
     }
-    public void setSexo (char sexo) {
-        this.sexo=sexo;
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
     }
-    public void setPeso (float peso) {
-        this.peso=peso;
+
+    public void setPeso(float peso) {
+        this.peso = peso;
     }
-    public void setAltura (float altura) {
-        this.altura=altura;
+
+    public void setAltura(float altura) {
+        this.altura = altura;
     }
-    public void setAficiones (String aficiones) {
-        this.aficiones=aficiones;
+
+    public void setAficiones(String aficiones) {
+        this.aficiones = aficiones;
     }
 
     /**********************GETTER***********************/
     public String getNombre() {
         return nombre;
     }
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
+
+    public String getFechaNac() {
+        return fechaNac;
     }
+
     public char getSexo() {
         return sexo;
     }
+
     public float getPeso() {
         return peso;
     }
+
     public float getAltura() {
         return altura;
     }
+
     public String aficiones() {
         return aficiones;
     }
 
+
+    /****************************toString*********************/
+    public String toString() {
+        return "El identificador es " + identificador + ", el nombre es " + nombre +
+                ", la fecha de nacimiento es " + fechaNac + ", el sexo es " + sexo + ", el peso es " + peso +
+                ", la altura es " + altura + " y las aficiones son: " + aficiones;
+    }
+
     /***********************MÉTODOS*******************/
-    public static float calcularIMC (float peso, float altura){
-        final float debajo =-1, ideal=0, sobrepeso=1;
-        float imc=peso/(altura*altura);
-         if (imc <20)
-             return debajo;
-            else if (imc >=20 && imc <=25)
-                return ideal;
-                else
-                    return sobrepeso;
+    public static int calcularIMC(float peso, float altura) {
+        //final float debajo = -1, ideal = 0, sobrepeso = 1;
+        float imc = peso / (altura * altura);
+        if (imc < 20)
+            return -1;
+        else if (imc >= 20 && imc <= 25)
+            return 0;
+        else
+            return 1;
     }
 
-    public static int calcularEdad (Date fechaNac) {
-        Date fechaUs =new Date (0,0,0);
-        return 1;
-    }
+    public static int calcularEdad(String fechaNac) {
 
-    public static void controlSexo (char sexo) {
-        while (sexo != 'h' || sexo != 'm') {
-            System.out.println("Error, debes introducir 'h' (hombre) o 'm' (mujer)");
+        /*************CONTROL FORMATO - Solicitud fecha nacimiento********/
+        Scanner sc = new Scanner(System.in);
+        /*while (fechaNac.length() <10) {
+            System.out.print("Introduce una fecha correcta (formato dd/mm/yyyy): ");
+            fechaNac = sc.nextLine();
+        }*/
+
+        /*************Fecha nacimiento********/
+
+        char[] fechaNacToCharArray = fechaNac.toCharArray();
+        int dayCar1 = Character.getNumericValue(fechaNacToCharArray[0]);
+        ;
+        int dayCar2 = Character.getNumericValue(fechaNacToCharArray[1]);
+        int monthCar1 = Character.getNumericValue(fechaNacToCharArray[3]);
+        int monthCar2 = Character.getNumericValue(fechaNacToCharArray[4]);
+        int yearCar1 = Character.getNumericValue(fechaNacToCharArray[6]);
+        int yearCar2 = Character.getNumericValue(fechaNacToCharArray[7]);
+        int yearCar3 = Character.getNumericValue(fechaNacToCharArray[8]);
+        int yearCar4 = Character.getNumericValue(fechaNacToCharArray[9]);
+
+        int dayBorn = Integer.valueOf(String.valueOf(dayCar1) + String.valueOf(dayCar2));
+        int monthBorn = Integer.valueOf(String.valueOf(monthCar1) + String.valueOf(monthCar2));
+        int yearBorn = Integer.valueOf(String.valueOf(yearCar1) + String.valueOf(yearCar2) + String.valueOf(yearCar3) + String.valueOf(yearCar4));
+
+        Calendar fechaBorn = Calendar.getInstance();
+        fechaBorn.set(yearBorn, monthBorn, dayBorn);
+        int numDayOfYearBorn = fechaBorn.get(Calendar.DAY_OF_YEAR);// Aquí obtengo el dia del año
+
+        /**************Fecha actual******************/
+        Calendar fechaActual = Calendar.getInstance();
+        int yearAct = fechaActual.get(Calendar.YEAR);
+        int monthAct = fechaActual.get(Calendar.MONTH);
+        int dayAct = fechaActual.get(Calendar.DAY_OF_MONTH);
+        fechaActual.set(yearAct, monthAct, dayAct);
+        int numDayOfYearActual = fechaActual.get(Calendar.DAY_OF_YEAR);// Aquí obtengo el dia del año
+
+        /**************Tratamiento eedad***************/
+        int edad = 0;
+        int auxAge = yearAct - yearBorn;
+        if (numDayOfYearActual < numDayOfYearBorn)
+            return auxAge - 1;
+        else
+            return auxAge;
+}
+
+    public static char controlSexo (char sexo) {
+        Scanner sc = new Scanner(System.in);
+        while (sexo != 'M' && sexo != 'M') {
+            System.out.print("Error, debes introducir 'H' (hombre) o 'M' (mujer)");
+            sexo=sc.nextLine().charAt(0);
         }
+        return sexo;
     }
 
-//    public static boolean mayorEdad (){}//calcular fechas
-//qué significa que INTRODUZCA UN SEXO CORRECTO;
+    public boolean mayorEdad (int edad) {
+        if (edad >= 18)
+            return true;
+        else
+            return false;
+    }
 
-    public static int generarIdentificador (){
+    public static void generarIdentificador (){
+        int tamCifras=6;
         Random r = new Random();
         int newIdent = r.nextInt(6)+1;
-        return newIdent;
     }
 }
+
+
