@@ -148,8 +148,8 @@ public class Persona {
 
     public static char controlSexo (char sexo) {
         Scanner sc = new Scanner(System.in);
-        while (sexo != 'M' && sexo != 'M') {
-            System.out.print("Error, debes introducir 'H' (hombre) o 'M' (mujer)");
+        while (sexo != 'M' && sexo != 'H') {
+            System.out.print("Error, debes introducir 'H' (hombre) o 'M' (mujer): ");
             sexo=sc.nextLine().charAt(0);
         }
         return sexo;
@@ -162,10 +162,16 @@ public class Persona {
             return false;
     }
 
-    public static void generarIdentificador (){
-        int tamCifras=6;
+    public static int generarIdentificador (){
+        final int tamCifras=6;
+        int newIdent=0;
         Random r = new Random();
-        int newIdent = r.nextInt(6)+1;
+        String cad = "";
+        for(int i=0;i<tamCifras;i++) {
+            newIdent = r.nextInt(10);
+            cad = cad+newIdent;
+        }
+        return Integer.parseInt(cad);
     }
 }
 

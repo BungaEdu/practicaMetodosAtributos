@@ -7,7 +7,9 @@ public class GestionaPersona {
         Persona pers2 = new Persona("", "", ' ');
         Persona pers3 = new Persona ("","", ' ', 0, 0, "");
 
-        /*************************PERSONA 1*****************************/
+        //System.out.println(Persona.generarIdentificador());
+
+        /*************************PERSONA 1*****************************
         System.out.println("Persona 1: ");
         System.out.print("Nombre: ");
         String nombre1 = sc.nextLine();
@@ -28,9 +30,9 @@ public class GestionaPersona {
         System.out.print("Dime aficiones: ");
         String aficiones1 = sc.nextLine();
         pers1.setAficiones(aficiones1);
+*/
 
-
-        /*************************PERSONA 2*****************************/
+        /*************************PERSONA 2*****************************
         System.out.println("Persona 2: ");
         System.out.print("Nombre: ");
         String nombre2 = sc.nextLine();
@@ -53,7 +55,7 @@ public class GestionaPersona {
         pers1.setAficiones(aficiones2);
 
 
-        /*************************PERSONA 3*****************************/
+        /*************************PERSONA 3*****************************
         System.out.println("Persona 3: ");
         System.out.print("Nombre: ");
         String nombre3 = sc.nextLine();
@@ -74,17 +76,16 @@ public class GestionaPersona {
         System.out.print("Dime aficiones: ");
         String aficiones3 = sc.nextLine();
         pers1.setAficiones(aficiones3);
+        */
 
 
-/*        System.out.print("Dime sexo: ");
+        System.out.print("Dime sexo: ");
         char sexo = sc.next().charAt(0);
         Persona.controlSexo(sexo);
         pers1.setSexo(sexo);
-        pers2.setSexo(sexo);
-        pers3.setSexo(sexo);*/
 
 
-        /**************MENSAJE PESO***********/
+        /**************MENSAJE PESO***********
         int mensajePesoPers1 = Persona.calcularIMC(pers1.getPeso(),pers1.getAltura());
         if (mensajePesoPers1==-1)
             System.out.println(pers1.getNombre() + " está por debajo del peso ideal");
@@ -108,8 +109,10 @@ public class GestionaPersona {
             System.out.println(pers3.getNombre() + " estás en el peso ideal");
         else if (mensajePesoPers3==1)
             System.out.println(pers3.getNombre() + " tiene sobrepeso");
+        */
 
-        /*************MAYOR EDAD*****************/
+
+        /*************MAYOR EDAD*****************
         Persona p = new Persona();
         int edadPers1= Persona.calcularEdad(pers1.getFechaNac());
         if(p.mayorEdad(edadPers1)==true)
@@ -117,6 +120,7 @@ public class GestionaPersona {
             else
                 System.out.println(pers1.getNombre() + " es menor de edad");
 
+            /*
         int edadPers2= Persona.calcularEdad(pers2.getFechaNac());
         if(p.mayorEdad(edadPers2)==true)
             System.out.println(pers2.getNombre() + " es mayor de edad");
@@ -128,6 +132,6 @@ public class GestionaPersona {
             System.out.println(pers3.getNombre() + " es mayor de edad");
         else
             System.out.println(pers3.getNombre() + " es menor de edad");
-
+*/
     }
 }
