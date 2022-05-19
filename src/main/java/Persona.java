@@ -1,14 +1,16 @@
 import java.util.*;
 
+//TODO correct: tendría que haber hecho los métodos privados
 public class Persona {
-    final char constSexMujer = 'M';
+    final char constSexMujer = 'M'; //TODO-correcc: al ser una constante lo tengo que poner en mayúsculas, pero está bien
+    //TODO-correcc: tendría que haber puesto constantes del peso (ideal, bajo, encima)
     private String identificador = " ";
     private String nombre = " ";
-    private String fechaNac = " "; //controlar formato fechas;
+    private String fechaNac = " "; //TODO-correcc: tendría que ser formato tipo Date o gregorianCalendar
     private Character sexo = constSexMujer;
     private float peso = 0;
     private float altura = 0;
-    private String aficiones = " ";//crear array
+    private String aficiones = " "; //TODO-correcc: tendría que haber creado array de 5 aficiones, con una constante como tamañano (en los requisitos pone 5)
 
     /***********************CONSTRUCTORES**********************/
     Persona() {
@@ -20,12 +22,13 @@ public class Persona {
         this.sexo = sexo;
     }
 
-    Persona(String nombre, String fechaNac, char sexo, float peso, float altura, String aficiones) {
+    Persona(String nombre, String fechaNac, char sexo, float peso, float altura, String aficiones) {//TODO correct: String aficiones[]
         this.nombre = nombre;
         this.fechaNac = fechaNac;
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
+        //TODO correct: this.aficiones=aficiones
     }
 
 
@@ -88,18 +91,18 @@ public class Persona {
     }
 
     /***********************MÉTODOS*******************/
-    public static int calcularIMC(float peso, float altura) {
+    public static int calcularIMC(float peso, float altura) { //TODO correct: no hace falta parámetros, porque va a coger los atributos del objetos, persé
         //final float debajo = -1, ideal = 0, sobrepeso = 1;
         float imc = peso / (altura * altura);
-        if (imc < 20)
-            return -1;
+        if (imc < 20) //TODO correct: tendría que poner 20,25 como constante.
+            return -1; //TODO correct: puedo poner 3 return o poner el resultado en una variables y poner sólo 1 return.
         else if (imc >= 20 && imc <= 25)
             return 0;
         else
             return 1;
     }
 
-    public static int calcularEdad(String fechaNac) {
+    public static int calcularEdad(String fechaNac) { //TODO correct: se tendría que haber hecho con date y milisegundos
 
         /*************CONTROL FORMATO - Solicitud fecha nacimiento********/
         Scanner sc = new Scanner(System.in);
@@ -148,7 +151,7 @@ public class Persona {
 
     public static char controlSexo (char sexo) {
         Scanner sc = new Scanner(System.in);
-        while (sexo != 'M' && sexo != 'H') {
+        while (sexo != 'M' && sexo != 'H') { //TODO correct: los requisitos decían que si el sexo es erróneo, poner mujer obligatoriamente
             System.out.print("Error, debes introducir 'H' (hombre) o 'M' (mujer): ");
             sexo=sc.nextLine().charAt(0);
         }

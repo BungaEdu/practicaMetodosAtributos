@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.Scanner;
 
 public class GestionaPersona {
@@ -9,7 +11,7 @@ public class GestionaPersona {
 
         //System.out.println(Persona.generarIdentificador());
 
-        /*************************PERSONA 1*****************************
+        /*************************PERSONA 1*****************************/
         System.out.println("Persona 1: ");
         System.out.print("Nombre: ");
         String nombre1 = sc.nextLine();
@@ -30,9 +32,9 @@ public class GestionaPersona {
         System.out.print("Dime aficiones: ");
         String aficiones1 = sc.nextLine();
         pers1.setAficiones(aficiones1);
-*/
 
-        /*************************PERSONA 2*****************************
+
+        /*************************PERSONA 2*****************************/
         System.out.println("Persona 2: ");
         System.out.print("Nombre: ");
         String nombre2 = sc.nextLine();
@@ -55,7 +57,7 @@ public class GestionaPersona {
         pers1.setAficiones(aficiones2);
 
 
-        /*************************PERSONA 3*****************************
+        /*************************PERSONA 3*****************************/
         System.out.println("Persona 3: ");
         System.out.print("Nombre: ");
         String nombre3 = sc.nextLine();
@@ -76,7 +78,6 @@ public class GestionaPersona {
         System.out.print("Dime aficiones: ");
         String aficiones3 = sc.nextLine();
         pers1.setAficiones(aficiones3);
-        */
 
 
         System.out.print("Dime sexo: ");
@@ -85,7 +86,17 @@ public class GestionaPersona {
         pers1.setSexo(sexo);
 
 
-        /**************MENSAJE PESO***********
+        /**************MENSAJE PESO***********/
+        //TODO correct: esto tendría que haberse hecho con un public static void
+        /* se puede hacer sin parámetros
+        public static void mensajePeso(Persona pers) {
+        if((pers.calcularIMC()==Persona.IMC_ID)
+            System.out.println(pers.getNombre() + " está en su peso ideal");
+        else if (pers.calcularIMC()==1)
+                System.out.println(pers.getNombre() + " esta debajo de su peso");
+                else System.out.println(pers.getNombre() + " está por debajo de su peso");
+        }*/
+
         int mensajePesoPers1 = Persona.calcularIMC(pers1.getPeso(),pers1.getAltura());
         if (mensajePesoPers1==-1)
             System.out.println(pers1.getNombre() + " está por debajo del peso ideal");
@@ -109,10 +120,10 @@ public class GestionaPersona {
             System.out.println(pers3.getNombre() + " estás en el peso ideal");
         else if (mensajePesoPers3==1)
             System.out.println(pers3.getNombre() + " tiene sobrepeso");
-        */
 
 
-        /*************MAYOR EDAD*****************
+
+        /*************MAYOR EDAD*****************/
         Persona p = new Persona();
         int edadPers1= Persona.calcularEdad(pers1.getFechaNac());
         if(p.mayorEdad(edadPers1)==true)
@@ -120,7 +131,7 @@ public class GestionaPersona {
             else
                 System.out.println(pers1.getNombre() + " es menor de edad");
 
-            /*
+
         int edadPers2= Persona.calcularEdad(pers2.getFechaNac());
         if(p.mayorEdad(edadPers2)==true)
             System.out.println(pers2.getNombre() + " es mayor de edad");
@@ -132,6 +143,15 @@ public class GestionaPersona {
             System.out.println(pers3.getNombre() + " es mayor de edad");
         else
             System.out.println(pers3.getNombre() + " es menor de edad");
-*/
+
+        /******************AFICIONES******************/
+        /*System.out.println("Aficiones: ");
+        for(int cont=0; cont<TAMarray(5); cont++){
+            aficiones[cont]=sc.nextLine();
+        }
+        pers.setAficiones(aficiones);*/
+
     }
+
+
 }
